@@ -1,7 +1,7 @@
 # homepage: "https://www.ptbwa.com"
 # documentation: "https://www.ptbwa.com/campaign-measurement"
 # versions:
-#   - sha: "initial"
+#   - sha: "b2cf19e163c72335ae078ef80d9b53f7a8d4ad1a"
 #     change_notes: "Initial release of Insight Pixel template with behavioral and conversion tracking."
 
 
@@ -21,7 +21,7 @@
 #   - CONVERSIONS
 # icon: "images/icon.png"
 # versions:
-#   - sha: "initial"
+#   - sha: "b2cf19e163c72335ae078ef80d9b53f7a8d4ad1a"
 #     change_notes: "Initial release of Insight Pixel template with behavioral and conversion tracking."
 
 
@@ -29,5 +29,5 @@
 homepage: "https://www.ptbwa.com"
 documentation: "https://www.ptbwa.com/contact.html"
 versions:
-  - sha: "initial"
+  - sha: "b2cf19e163c72335ae078ef80d9b53f7a8d4ad1a"
     change_notes: "Initial release of Insight Pixel template with behavioral and conversion tracking."
