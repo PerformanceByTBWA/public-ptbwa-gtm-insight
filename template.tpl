@@ -12,15 +12,14 @@ ___INFO___
   "id": "ptbwa_insight_pixel",
   "version": 1,
   "displayName": "Ptbwa Insight Pixel",
-  "description": "Ptbwa Pixel helps you capture rich behavioral signals and key conversion events 
-  from your website visitors, enabling smarter audience segmentation and optimization.",
+  "description": "Ptbwa Pixel helps you capture rich behavioral signals and key conversion events from your website visitors, enabling smarter audience segmentation and optimization.",
   "containerContexts": ["WEB"],
   "categories": ["ATTRIBUTION", "ANALYTICS", "REMARKETING", "PERSONALIZATION"],
   "securityGroups": [],
   "brand": {
     "id": "ptbwa",
     "displayName": "Ptbwa",
-    "thumbnail": ""
+    "thumbnail": "https://www.ptbwa.com/img/logo.png"
   }
 }
 
@@ -255,7 +254,7 @@ ___WEB_PERMISSIONS___
   }
 ]
 
-___TESTS___ 
+___TESTS___
 
 scenarios:
   - name: PageView pixel fires correctly
@@ -341,7 +340,7 @@ scenarios:
 
       assertApi('gtmOnFailure').wasCalled();
 
-  ___NOTES___
+___NOTES___
 
-  Created on 9/4/2025, 3:02:37 PM
+Created on 9/4/2025, 3:02:37 PM
 
