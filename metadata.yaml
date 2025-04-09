@@ -27,7 +27,22 @@
 
 
 homepage: "https://www.ptbwa.com"
-documentation: "https://www.ptbwa.com/contact.html"
+documentation: "https://www.ptbwa.com/campaign-measurement"
 versions:
   - sha: "b2cf19e163c72335ae078ef80d9b53f7a8d4ad1a"
     change_notes: "Initial release of Insight Pixel template with behavioral and conversion tracking."
+name: "insight-pixel"
+display_name: "Insight Pixel (Behavior + Conversion)"
+description: >
+  Insight Pixel allows you to track both behavioral (scroll, time on page, click)
+  and conversion events (lead, purchase, signup) via a single GTM tag.
+author:
+  name: "Performance BY TBWA"
+  url: "https://www.ptbwa.com"
+container_context: "WEB"
+categories:
+  - ANALYTICS
+  - ATTRIBUTION
+  - BEHAVIORAL_TRACKING
+  - CONVERSIONS
+icon: "images/icon.png"
