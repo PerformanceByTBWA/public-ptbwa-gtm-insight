@@ -9,96 +9,20 @@ ___INFO___
 
 {
   "type": "TAG",
-  "id": "ptbwa_insight_pixel",
+  "id": "cvt_temp_public_id",
   "version": 1,
+  "securityGroups": [],
   "displayName": "Ptbwa Insight Pixel",
   "description": "Ptbwa Pixel helps you capture rich behavioral signals and key conversion events from your website visitors, enabling smarter audience segmentation and optimization.",
   "containerContexts": ["WEB"],
   "categories": ["ATTRIBUTION", "ANALYTICS", "REMARKETING", "PERSONALIZATION"],
-  "securityGroups": [],
+  
   "brand": {
-    "id": "ptbwa",
+    "id": "brand_dummy",
     "displayName": "Ptbwa",
     "thumbnail": "https://www.ptbwa.com/img/logo.png"
   }
 }
-
-___SANDBOXED_JS_FOR_WEB_TEMPLATE___
-
-const getUrl = require('getUrl');
-const getReferrerUrl = require('getReferrerUrl');
-const getCookieValues = require('getCookieValues');
-const setCookie = require('setCookie');
-const generateRandom = require('generateRandom');
-const getTimestampMillis = require('getTimestampMillis');
-const sendPixel = require('sendPixel');
-const encodeUriComponent = require('encodeUriComponent');
-const JSON = require('JSON');
-
-const COOKIE_NAME = '_insight_uid';
-const GA_COOKIE = '_ga';
-const PIXEL_ENDPOINT = 'https://track.ptbwa.com/v1';
-
-
-function createUuid() {
-  const hex = '0123456789abcdef';
-  const sections = [8, 4, 4, 4, 12];
-  let uuid = '';
-  for (let i = 0; i < sections.length; i++) {
-    if (i > 0) uuid += '-';
-    for (let j = 0; j < sections[i]; j++) {
-      uuid += hex.charAt(Math.floor(generateRandom(0, 16)));
-    }
-  }
-  return uuid;
-}
-
-
-function getOrCreateUid(cookieName) {
-  let uid = getCookieValues(cookieName)[0];
-  if (!uid) uid = createUuid();
-  setCookie(cookieName, uid, {
-    'max-age': 60 * 60 * 24 * 30, // 30일
-    'secure': true
-  });
-  return uid;
-}
-
-
-function serialize(params) {
-  return Object.keys(params)
-    .map(key => key + '=' + encodeUriComponent(params[key] || ''))
-    .join('&');
-}
-
-
-(function () {
-  const userId = getOrCreateUid(COOKIE_NAME);
-  const gaId = getCookieValues(GA_COOKIE)[0] || '';
-  const timestamp = getTimestampMillis();
-
-  const payload = {
-    pid: data.pixelId,
-    eid: createUuid(),
-    ev: data.eventType,
-    scroll: data.scrollDepth,
-    time: data.timeOnPage,
-    click: data.clickedId,
-    conv_type: data.conversionType,
-    conv_value: data.conversionValue,
-    conv_meta: data.conversionMeta ? JSON.stringify(data.conversionMeta) : '',
-    cid: userId,
-    gid: gaId,
-    url: getUrl(),
-    ref: getReferrerUrl(),
-    ts: timestamp
-  };
-
-  const pixelUrl = PIXEL_ENDPOINT + '?' + serialize(payload);
-
-  sendPixel(pixelUrl, data.gtmOnSuccess, data.gtmOnFailure);
-})();
-
 
 ___TEMPLATE_PARAMETERS___
 
@@ -253,6 +177,85 @@ ___WEB_PERMISSIONS___
     "isRequired": true
   }
 ]
+
+___SANDBOXED_JS_FOR_WEB_TEMPLATE___
+
+const getUrl = require('getUrl');
+const getReferrerUrl = require('getReferrerUrl');
+const getCookieValues = require('getCookieValues');
+const setCookie = require('setCookie');
+const generateRandom = require('generateRandom');
+const getTimestampMillis = require('getTimestampMillis');
+const sendPixel = require('sendPixel');
+const encodeUriComponent = require('encodeUriComponent');
+const JSON = require('JSON');
+
+const COOKIE_NAME = '_insight_uid';
+const GA_COOKIE = '_ga';
+const PIXEL_ENDPOINT = 'https://track.ptbwa.com/v1';
+
+
+function createUuid() {
+  const hex = '0123456789abcdef';
+  const sections = [8, 4, 4, 4, 12];
+  let uuid = '';
+  for (let i = 0; i < sections.length; i++) {
+    if (i > 0) uuid += '-';
+    for (let j = 0; j < sections[i]; j++) {
+      uuid += hex.charAt(Math.floor(generateRandom(0, 16)));
+    }
+  }
+  return uuid;
+}
+
+
+function getOrCreateUid(cookieName) {
+  let uid = getCookieValues(cookieName)[0];
+  if (!uid) uid = createUuid();
+  setCookie(cookieName, uid, {
+    'max-age': 60 * 60 * 24 * 30, // 30일
+    'secure': true
+  });
+  return uid;
+}
+
+
+function serialize(params) {
+  return Object.keys(params)
+    .map(key => key + '=' + encodeUriComponent(params[key] || ''))
+    .join('&');
+}
+
+
+(function () {
+  const userId = getOrCreateUid(COOKIE_NAME);
+  const gaId = getCookieValues(GA_COOKIE)[0] || '';
+  const timestamp = getTimestampMillis();
+
+  const payload = {
+    pid: data.pixelId,
+    eid: createUuid(),
+    ev: data.eventType,
+    scroll: data.scrollDepth,
+    time: data.timeOnPage,
+    click: data.clickedId,
+    conv_type: data.conversionType,
+    conv_value: data.conversionValue,
+    conv_meta: data.conversionMeta ? JSON.stringify(data.conversionMeta) : '',
+    cid: userId,
+    gid: gaId,
+    url: getUrl(),
+    ref: getReferrerUrl(),
+    ts: timestamp
+  };
+
+  const pixelUrl = PIXEL_ENDPOINT + '?' + serialize(payload);
+
+  sendPixel(pixelUrl, data.gtmOnSuccess, data.gtmOnFailure);
+})();
+
+
+
 
 ___TESTS___
 
