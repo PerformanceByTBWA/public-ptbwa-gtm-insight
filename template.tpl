@@ -38,7 +38,7 @@ const JSON = require('JSON');
 
 const COOKIE_NAME = '_insight_uid';
 const GA_COOKIE = '_ga';
-const PIXEL_ENDPOINT = 'https://yourdomain.com/insight-pixel';
+const PIXEL_ENDPOINT = 'https://track.ptbwa.com/v1';
 
 
 function createUuid() {
@@ -173,7 +173,7 @@ ___WEB_PERMISSIONS___
           "value": {
             "type": 2,
             "listItem": [
-              { "type": 1, "string": "https://yourdomain.com/*" }
+              { "type": 1, "string": "https://track.ptbwa.com/*" }
             ]
           }
         }
