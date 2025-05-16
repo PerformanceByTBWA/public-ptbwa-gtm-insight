@@ -15,7 +15,7 @@ ___INFO___
   "displayName": "Ptbwa Insight Pixel",
   "description": "Ptbwa Pixel helps you capture rich behavioral signals and key conversion events from your website visitors, enabling smarter audience segmentation and optimization.",
   "containerContexts": ["WEB"],
-  "categories": ["ATTRIBUTION", "ANALYTICS", "REMARKETING", "PERSONALIZATION"],
+  "categories": ["ATTRIBUTION", "ANALYTICS"],
   
   "brand": {
     "id": "brand_dummy",
