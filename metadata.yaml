@@ -1,5 +1,5 @@
 homepage: "https://addi.ai.kr/"
 documentation: "https://addi-1.gitbook.io/guide/part-7./undefined"
 versions:
-  - sha: "ca3457d6e631931a94c6d0dd0710f3b8cd114690"
+  - sha: "80a4a79b5f78a9a9f468672e8662b2fa2f32dd88"
     changeNotes: "Initial release of Insight Pixel template with behavioral and conversion tracking."
