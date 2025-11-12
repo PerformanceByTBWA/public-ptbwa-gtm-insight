@@ -29,7 +29,7 @@
 homepage: "https://performancebytbwa.com/"
 documentation: "https://performancebytbwa.com/campaign-measurement"
 versions:
-  - sha: "b2cf19e163c72335ae078ef80d9b53f7a8d4ad1a"
+  - sha: "ca3457d6e631931a94c6d0dd0710f3b8cd114690"
     change_notes: "Initial release of Insight Pixel template with behavioral and conversion tracking."
 name: "insight-pixel"
 display_name: "Insight Pixel (Behavior + Conversion)"
@@ -38,7 +38,7 @@ description: >
   and conversion events (lead, purchase, signup) via a single GTM tag.
 author:
   name: "Performance BY TBWA"
-  url: "https://www.ptbwa.com"
+  url: "https://performancebytbwa.com"
 container_context: "WEB"
 categories:
   - ANALYTICS
