@@ -26,8 +26,8 @@
 
 
 
-homepage: "https://www.ptbwa.com"
-documentation: "https://www.ptbwa.com/campaign-measurement"
+homepage: "https://performancebytbwa.com/"
+documentation: "https://performancebytbwa.com/campaign-measurement"
 versions:
   - sha: "b2cf19e163c72335ae078ef80d9b53f7a8d4ad1a"
     change_notes: "Initial release of Insight Pixel template with behavioral and conversion tracking."
