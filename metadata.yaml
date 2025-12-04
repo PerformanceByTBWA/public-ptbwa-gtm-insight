@@ -1,6 +1,8 @@
 homepage: "https://addi.ai.kr/"
 documentation: "https://addi-1.gitbook.io/guide/part-7./undefined"
 versions:
+  - sha: "e92ef77dae4c8a096b417ccad8544cd652e814ab"
+    changeNotes: "Add Term. - SK"
   - sha: "4eae1918624fdf8638b8758f41b68caf26d03f7d"
     changeNotes: "Field & Test Script Re-Define. - SK"
   - sha: "80a4a79b5f78a9a9f468672e8662b2fa2f32dd88"
