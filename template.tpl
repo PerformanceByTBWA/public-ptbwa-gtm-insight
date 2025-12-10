@@ -253,7 +253,8 @@ function serialize(params) {
     click: data.clickedId,
     conv_type: data.conversionType,
     conv_value: data.conversionValue,
-    conv_meta: data.conversionMeta ? JSON.stringify(data.conversionMeta) : '',
+    // conv_meta: data.conversionMeta ? JSON.stringify(data.conversionMeta) : '',
+    conv_meta: data.conversionMeta || '',
     cid: userId,
     gid: gaId,
     url: getUrl(),
@@ -270,9 +271,12 @@ function serialize(params) {
       data.gtmOnSuccess();
   }
   */
-  sendPixel(pixelUrl, null, null);
-  if (data.gtmOnSuccess) data.gtmOnSuccess();
-  else data.gtmOnFailure();
+  sendPixel(pixelUrl, data.gtmOnSuccess, data.gtmOnFailure);
+  if (data.gtmOnSuccess) {
+    data.gtmOnSuccess();
+  }else{
+    data.gtmOnFailure();
+  }
 })();
 
 
@@ -538,7 +542,7 @@ scenarios:
       eventType: 'order',
       conversionType: 'order',
       conversionValue: '49.99',
-      // conversionMeta: '{"coupon":"NEW50"}'
+      conversionMeta: '{"coupon":"NEW50"}'
     };
     runCode(mockData);
 
@@ -548,7 +552,7 @@ scenarios:
     assertThat(mockUrl[0]).contains('ev=order');
     assertThat(mockUrl[0]).contains('conv_type=order');
     assertThat(mockUrl[0]).contains('conv_value=49.99');
-    // assertThat(mockUrl[0]).contains('conv_meta=%7B%22coupon%22%3A%22NEW50%22%7D');
+    assertThat(mockUrl[0]).contains('conv_meta=%7B%22coupon%22%3A%22NEW50%22%7D');
 - name: '[PTBWA] Cookie is set when not exists'
   code: |-
     var mockUrl = [];
