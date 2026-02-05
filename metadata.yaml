@@ -1,6 +1,8 @@
 homepage: "https://addi.ai.kr/"
 documentation: "https://addi-1.gitbook.io/guide/part-7./"
 versions:
+  - sha: "47e6d0210765dfa836899bd4faaf45dafeaa4d73"
+    changeNotes: "Finalize template for GTM gallery submission."
   - sha: "d34d681df79dec2d168eb5e2f06546b48e44fa17"
     changeNotes: "Refactor conversionMeta handling and pixel sending - SK"
   - sha: "e92ef77dae4c8a096b417ccad8544cd652e814ab"
