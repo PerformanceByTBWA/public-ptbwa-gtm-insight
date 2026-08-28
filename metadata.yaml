@@ -1,6 +1,8 @@
 homepage: "https://addi.ai.kr/"
 documentation: "https://addi-1.gitbook.io/guide/part-7./"
 versions:
+  - sha: "56d422be1205b1ed9737f17582dd660711e0ef8d"
+    changeNotes: "Release v1.2 with tracking improvements and duplicate callback fix."
   - sha: "47e6d0210765dfa836899bd4faaf45dafeaa4d73"
     changeNotes: "Finalize template for GTM gallery submission."
   - sha: "d34d681df79dec2d168eb5e2f06546b48e44fa17"
