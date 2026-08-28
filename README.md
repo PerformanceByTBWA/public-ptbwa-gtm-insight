@@ -1,6 +1,14 @@
+<div align="center">
+
 # Ptbwa Insight Pixel GTM Template
 
 This repository contains the GTM Template for **Insight Pixel**, allowing you to easily integrate behavioral and conversion tracking into your website using Google Tag Manager.
+
+**English** | [**한국어**](README.ko.md)
+
+</div>
+
+---
 
 ## Table of Contents
 
@@ -19,6 +27,7 @@ The Ptbwa Insight Pixel template simplifies sending event data (page views, clic
 
 - **Comprehensive Tracking**: Supports standard events like page views, clicks, and scroll depth.
 - **Conversion Tracking**: Easily send conversion events (purchase, signup, order, etc.) with custom values and metadata.
+- **Google Ads Integration**: Automatically captures and conditionally stores \`gclid\` from URL query parameters to tracking interactions.
 - **Sandboxed JavaScript**: Built using GTM's secure sandboxed environment.
 - **Auto-Generated IDs**: Automatically handles unique event and user identification via cookies.
 
@@ -30,8 +39,8 @@ The Ptbwa Insight Pixel template simplifies sending event data (page views, clic
 | **Event Type**       | Select | page_view, click, scroll, or conversion.                                 |
 | **Scroll Depth**     | Text   | The value for scroll coordinates (shown when Event Type is 'scroll').    |
 | **Click ID**         | Text   | The ID of the clicked element (shown when Event Type is 'click').        |
-| **Conversion Type**  | Select | order, purchase, signup, signin (shown when Event Type is 'conversion'). |
-| **Conversion Value** | Text   | The value of the conversion (shown for purchase/order).                  |
+| **Conversion Type**  | Select | order, purchase, signup, signin, refund, apply_coupon, download_coupon (shown when Event Type is 'conversion'). |
+| **Conversion Value** | Text   | The value of the conversion (shown for purchase/order/refund/apply_coupon). |
 | **Conversion Meta**  | Text   | Additional metadata for the conversion in string format.                 |
 
 ## Installation
@@ -51,6 +60,9 @@ The Ptbwa Insight Pixel template simplifies sending event data (page views, clic
 4. Choose the **Event Type** you want to track.
 5. Set the appropriate **Trigger** (e.g., All Pages for `page_view`, or specific click triggers).
 6. **Preview** and **Publish** your container.
+
+> 📖 **New to GTM or tag templates?**
+> Check out the [**Detailed Usage Guide**](docs/usage.md) for step-by-step instructions on importing the template, configuring each event type, setting up triggers, and verifying your setup with Preview Mode.
 
 ## License
 
