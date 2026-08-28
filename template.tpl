@@ -329,18 +329,7 @@ function serialize(params) {
   
   const pixelUrl = PIXEL_ENDPOINT + '?' + serialize(payload);
   // log(pixelUrl);
-  /*  
   sendPixel(pixelUrl, data.gtmOnSuccess, data.gtmOnFailure);
-  if (data.gtmOnSuccess) {
-      data.gtmOnSuccess();
-  }
-  */
-  sendPixel(pixelUrl, data.gtmOnSuccess, data.gtmOnFailure);
-  if (data.gtmOnSuccess) {
-    data.gtmOnSuccess();
-  }else{
-    data.gtmOnFailure();
-  }
 })();
 
 
@@ -864,6 +853,42 @@ scenarios:
     assertThat(mockUrl[0]).contains('ev=conversion');
     assertThat(mockUrl[0]).contains('conv_type=download_coupon');
     assertThat(mockUrl[0]).contains('conv_meta=%7B%22coupon_name%22%3A%22SUMMER20%22%7D');
+- name: '[PTBWA] sendPixel controls asynchronous success completion'
+  code: |-
+    const callLater = require('callLater');
+    mock('sendPixel', function(url, onSuccess) {
+      callLater(onSuccess);
+    });
+
+    runCode({
+      pixelId: _pixelID,
+      eventType: 'page_view'
+    });
+
+    assertApi('gtmOnSuccess').wasNotCalled();
+    assertApi('gtmOnFailure').wasNotCalled();
+    callLater(function() {
+      assertApi('gtmOnSuccess').wasCalled();
+      assertApi('gtmOnFailure').wasNotCalled();
+    });
+- name: '[PTBWA] sendPixel controls asynchronous failure completion'
+  code: |-
+    const callLater = require('callLater');
+    mock('sendPixel', function(url, onSuccess, onFailure) {
+      callLater(onFailure);
+    });
+
+    runCode({
+      pixelId: _pixelID,
+      eventType: 'page_view'
+    });
+
+    assertApi('gtmOnSuccess').wasNotCalled();
+    assertApi('gtmOnFailure').wasNotCalled();
+    callLater(function() {
+      assertApi('gtmOnSuccess').wasNotCalled();
+      assertApi('gtmOnFailure').wasCalled();
+    });
 - name: '[PTBWA] Numeric zero conversion value is preserved'
   code: |-
     var mockUrl = [];
